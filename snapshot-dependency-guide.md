@@ -26,8 +26,8 @@ src/gz openwrt_routing https://downloads.openwrt.org/snapshots/packages/aarch64_
 src/gz openwrt_telephony https://downloads.openwrt.org/snapshots/packages/aarch64_cortex-a53/telephony
 ```
 
-The first line, `openwrt_core` includes some important packages along with all *latest* kmods and the `openwrt_kmods` line is the kmods feed 
-matching current running system, thus opkg gets duplicates kmods entries when the snapshot is outdated, and throws error as it tries to get (newer) kmods from `openwrt_core`.
+The first line, `openwrt_core` includes some important packages along with all *latest* kmods and the `openwrt_kmods` line is the kmod feed 
+matching current running system, opkg gets two entries for each kmod once the snapshot is outdated, throws error when trying to install (newer) kmods from `openwrt_core`.
 
 ### The fix
 
