@@ -1,5 +1,5 @@
 ### The problem
-If you ever get the kernel dependency error:
+Snapshot builds evolve quickly, and that sets time limits to installing new packages with opkg, so if you ever get the kernel dependency error:
 
 ```
  # opkg install tailscale
