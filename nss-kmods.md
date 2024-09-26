@@ -1,6 +1,6 @@
 This release has most of the kmods(kernel module) prebuilt, to use the binaries:
 
-1. Download the kmods.tar.gz to the router, extract and copy the content to `/www`, or use another http server. Adjust accordingly.
+1. Download the kmods.tar.gz to the router, extract the content to `/www`. For use with other http server, adjust accordingly.
    ```
    #on browser, right click the kmods.tar.gz, then "copy link address"
    wget https://github.com/...../kmods.tar.gz -O /tmp/kmods.tar.gz
