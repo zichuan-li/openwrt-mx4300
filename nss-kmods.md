@@ -9,6 +9,7 @@ This release has most of kmods(kernel module) prebuilt, to use the binaries:
    tar xvfz /tmp/kmods.tar.gz -C /www
 
    #or: with usb storage, extract the file there and make a symbolic link in /www
+   #tar xvfz /tmp/kmods.tar.gz -C /mnt/sda1
    #ln -s /mnt/sda1/kmods /www
    ```
 
