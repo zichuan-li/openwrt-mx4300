@@ -1,5 +1,5 @@
 ### The problem
-Snapshot builds evolve quickly, and that sets time limits to installing new packages with opkg, so if you ever get the kernel dependency error:
+Snapshot builds evolve quickly, and that sets time limits to install new packages. If you ever get the kernel dependency error:
 
 ```
  # opkg install tailscale
@@ -12,7 +12,7 @@ Collected errors:
  * opkg_install_cmd: Cannot install package tailscale.
 ```
 
-There is no need to upgrade and can be worked around.
+there is no need to upgrade and can be worked around.
 
 In `/etc/opkg/distfeed.conf`, we have(for the foss build)
 
@@ -31,7 +31,7 @@ matching current running system, opkg gets two entries for each kmod once the sn
 
 ### The fix
 
-For most package, take `tailscale` for example
+For most packages, take `tailscale` for example
 ```
 #update opkg database
 opkg update
@@ -42,7 +42,7 @@ rm /var/opkg-lists/openwrt_core*
 #now install, it will complete without error
 opkg install tailscale
 
-#get the removed database back
+#restore
 opkg update
 ```
 
@@ -59,7 +59,7 @@ opkg info qosify
 rm /var/opkg-lists/openwrt_core*
 opkg install  kmod-sched-cake kmod-sched-bpf kmod-ifb
 
-#add openwrt_core back and finish install.
+#add openwrt_core back and install
 opkg update
 opkg install qosify
 ```
