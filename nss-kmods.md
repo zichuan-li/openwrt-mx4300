@@ -1,4 +1,4 @@
-This release has most of kmods(kernel module) prebuilt, to use the binaries:
+This release has most of the kmods(kernel module) prebuilt, to use the binaries:
 
 1. Download the kmods.tar.gz in release to the router, extract and copy the content to `/www`, or use another http server. Adjust accordingly.
    ```
