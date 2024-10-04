@@ -1,20 +1,18 @@
 #!/bin/sh
 
-MD="../note.md"
+MD="note.md"
 mkdir release
 cp  bin/targets/qualcommax/ipq807x/openwrt-qualcommax-ipq807x-linksys_mx4300-* release/
 cp  bin/targets/qualcommax/ipq807x/openwrt-qualcommax-ipq807x-linksys_mx4300.manifest release/
 cp bin/targets/qualcommax/ipq807x/openwrt-imagebuilder* release/
-cd release
-kernel=$(cat openwrt-qualcommax-ipq807x-linksys_mx4300.manifest | grep ^kernel)
-checksum=$(sha256sum *)
+kernel=$(cat release/openwrt-qualcommax-ipq807x-linksys_mx4300.manifest | grep ^kernel)
+checksum=$(sha256sum release/* | sed 's/release\///')
+#echo $checksum
 echo "- $kernel
 
 - sha256sum
 \`\`\`
-${checksum}
+$checksum
 \`\`\`
 
 - \"kernel dependency error\" [fix](https://github.com/arix00/openwrt-mx4300/blob/doc/snapshot-dependency-guide.md)" > $MD
-
-cd ..
