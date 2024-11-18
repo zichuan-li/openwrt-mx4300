@@ -2,7 +2,7 @@ This release has most of the kmods(kernel module) prebuilt, to use the binaries:
 
 1. Download and extract the kmods.tar.gz to the router, for example, `/www`.  
 
-   Note: can be any other path other than `/www` as `apk` accepts local file path as feed.
+   Note: can use other path instead of `/www` as `apk` accepts local file path as feed.
 
    ```
    #on browser, right click the kmods.tar.gz, then "copy link address"
