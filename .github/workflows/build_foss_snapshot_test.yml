@@ -1,7 +1,9 @@
 name: test build foss snapshot image
 on: workflow_dispatch
 env:
-  SCRIPT_PATH:  "https://raw.githubusercontent.com/arix00/openwrt-mx4300/refs/heads/buildscript"
+  MAIN_REPO:  "https://github.com/arix00/openwrt-mx4300.git"
+  BRANCH: "mx4300-foss"
+  SCRIPT: "buildscript"
 
 jobs:
     build:
@@ -36,19 +38,14 @@ jobs:
                   sudo apt-get clean
 
             - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                ref: 'mx4300-foss'
+              run:  |
+                    git clone $MAIN_REPO -branch ${BRANCH}
+                    cd openwrt-mx4300
+                    git checkout ${SCRIPT} -- setenv.sh genconfig_foss.sh release_foss.sh
 
             - name: Update feeds
               run:  scripts/feeds update -a && scripts/feeds install -a
             
-            - name: Get build script
-              run:  |
-                    wget $SCRIPT_PATH/setenv.sh
-                    wget $SCRIPT_PATH/genconfig_foss.sh
-                    wget $SCRIPT_PATH/release_foss.sh
-
             - name: Generate config
               run:  sh genconfig_foss.sh snapshot
 
