@@ -40,13 +40,15 @@ jobs:
 
             - name: Checkout
               run:  |
+                    pwd
+                    cd $GITHUB_WORKSPACE
                     git clone $REPO --branch ${SCRIPT_BRANCH}
                     cd openwrt-mx4300
                     git checkout ${BUILD_BRANCH}
                     git checkout ${SCRIPT_BRANCH} -- ${SCRIPT_FILE}
 
             - name: Update feeds
-              run:  scripts/feeds update -a && scripts/feeds install -a
+              run:  pwd && scripts/feeds update -a && scripts/feeds install -a
             
             - name: Generate config
               run:  sh genconfig_foss.sh snapshot
