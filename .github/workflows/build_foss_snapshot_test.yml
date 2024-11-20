@@ -2,7 +2,7 @@ name: test build foss snapshot image
 on: workflow_dispatch
 env:
   REPO:  "https://github.com/arix00/openwrt-mx4300.git"
-  BRANCH: "mx4300-foss"
+  BUILD: "mx4300-foss"
   SCRIPT: "script"
 
 jobs:
@@ -39,8 +39,9 @@ jobs:
 
             - name: Checkout
               run:  |
-                    git clone $REPO --branch ${BRANCH}
+                    git clone $REPO --branch ${SCRIPT}
                     cd openwrt-mx4300
+                    git checkout ${BUILD}
                     git checkout ${SCRIPT} -- setenv.sh genconfig_foss.sh release_foss.sh
 
             - name: Update feeds
