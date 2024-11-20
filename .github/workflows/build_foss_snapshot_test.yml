@@ -57,13 +57,3 @@ jobs:
 
             - name: Prepare release
               run:  sh release_foss.sh ${{ env.ver }}
-
-            - name: Get SHA
-              uses: benjlevesque/short-sha@v3.0
-
-            - name: Release
-              uses: ncipollo/release-action@v1
-              with:
-                tag: qualcommax-foss-${{ env.ver }}-${{ env.SHA }}
-                artifacts: release/*
-                bodyFile: note.md
