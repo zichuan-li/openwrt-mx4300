@@ -1,5 +1,7 @@
-name: build foss snapshot image
+name: test build foss snapshot image
 on: workflow_dispatch
+env:
+  scriptpath:  "https://raw.githubusercontent.com/arix00/openwrt-mx4300/refs/heads/buildscript"
 
 jobs:
     build:
@@ -43,8 +45,9 @@ jobs:
             
             - name: Get script
               run:  |
-                    wget https://github.com/arix00/openwrt-mx4300/blob/buildscript/release_foss.sh
-                    wget https://raw.githubusercontent.com/arix00/openwrt-mx4300/refs/heads/buildscript/genconfig_foss.sh
+                    wget $SCRIPT_PATH/setenv.sh
+                    wget $SCRIPT_PATH/genconfig_foss.sh
+                    wget $SCRIPT_PATH/release_foss.sh
 
             - name: Generate config
               run:  sh genconfig_foss.sh snapshot
