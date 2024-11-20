@@ -39,7 +39,7 @@ jobs:
 
             - name: Checkout
               run:  |
-                    git clone $MAIN_REPO -branch ${BRANCH}
+                    git clone $MAIN_REPO --branch ${BRANCH}
                     cd openwrt-mx4300
                     git checkout ${SCRIPT} -- setenv.sh genconfig_foss.sh release_foss.sh
 
