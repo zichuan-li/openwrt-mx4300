@@ -1,7 +1,7 @@
 name: auto build nss snapshot
 on:
   schedule:
-    - cron: "30 12 * * 2,6"
+    - cron: "00 16 * * 2,6"
 
 jobs:
   call-build-nss-snapshot:
