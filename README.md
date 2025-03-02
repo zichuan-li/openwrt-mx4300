@@ -1,8 +1,12 @@
 ## About
 
-This is for Linksys LN1301/MX4300 router as [no official support](https://github.com/openwrt/openwrt/pull/16070) in OpenWrt yet. 
+This is for Linksys LN1301/MX4300 router ~~as [no official support](https://github.com/openwrt/openwrt/pull/16070) in OpenWrt yet~~. 
 Firmware images are generated from github action.
 
+Currently the MX4300 support has been merged in main(unstable) branch but not in 24.10, so this repo will continue with:
+- FOSS 24.10
+- NSS  24.10 and Snapshot
+  
 ### Credit
 
 - The OpenWrt project.
